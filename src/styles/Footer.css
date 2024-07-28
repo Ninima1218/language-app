@@ -1,0 +1,57 @@
+footer {
+    background-color: rgb(17, 17, 17);
+    width: 100%;
+    height: auto;
+    color: rgb(196, 194, 191);
+    display: flex;
+    justify-content:space-around;
+    font-size: large;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-links ul {
+    padding: 0;
+    list-style-type: none;
+    font-size: small;
+}
+
+.contact-links li {
+    margin: 5px 0;
+}
+
+.contact-links a {
+    color: rgb(196, 194, 191);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.social-media {
+    margin-top: 15px;
+    
+}
+
+.social-media li {
+    color: rgb(196, 194, 191);
+    font-size: medium;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Menu.css';
+import './Menu.css';
 import girls from '../images/girls.png';
 import vocabularyIcon from '../images/vocabulary.png';
 import grammarIcon from '../images/grammar.png';

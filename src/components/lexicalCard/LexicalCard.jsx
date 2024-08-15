@@ -3,47 +3,7 @@ import { useParams } from 'react-router-dom';
 import WordCard from '../wordCard/WordCard';
 import '../lexicalCard/LexicalCard.css';
 import useLocalStorage from '../hooks/useLocalStorage';
-
-const wordsData = {
-    family: [
-        { word: 'Father', meaning: 'Отец' },
-        { word: 'Mother', meaning: 'Мать' },
-        { word: 'Sister', meaning: 'Сестра' },
-        { word: 'Brother', meaning: 'Брат' },
-        { word: 'Grandmother', meaning: 'Бабушка' },
-        { word: 'Grandfather', meaning: 'Дедушка' },
-        { word: 'Uncle', meaning: 'Дядя' },
-        { word: 'Aunt', meaning: 'Тётя' },
-    ],
-    city: [
-        { word: 'Building', meaning: 'Здание' },
-        { word: 'Street', meaning: 'Улица' },
-        { word: 'House', meaning: 'Дом' },
-        { word: 'Shop', meaning: 'Магазин' },
-        { word: 'Bank', meaning: 'Банк' },
-        { word: 'Restaurant', meaning: 'Ресторан' },
-        { word: 'Cafe', meaning: 'Кафе' },
-    ],
-    food: [
-        { word: 'Apple', meaning: 'Яблоко' },
-        { word: 'Bread', meaning: 'Хлеб' },
-        { word: 'Milk', meaning: 'Молоко' },
-        { word: 'Meat', meaning: 'Мясо' },
-        { word: 'Fish', meaning: 'Рыба' },
-        { word: 'Butter', meaning: 'Сливочное масло' },
-        { word: 'Soup', meaning: 'Суп' },
-        { word: 'Oil', meaning: 'Подсолнечное масло' },
-    ],
-    people: [
-        { word: 'Man', meaning: 'Мужчина' },
-        { word: 'Woman', meaning: 'Женщина' },
-        { word: 'Seller', meaning: 'Продавец' },
-        { word: 'Actress', meaning: 'Актриса' },
-        { word: 'Manager', meaning: 'Менеджер' },
-        { word: 'Doctor', meaning: 'Врач' },
-        { word: 'Teacher', meaning: 'Учитель' },
-    ],
-};
+import wordsData from '../../data/wordsData.json';
 
 function LexicalCard() {
     const { topic } = useParams();

@@ -1,0 +1,20 @@
+{
+    "stories": [
+      {
+        "title": "The Curious Cat",
+        "content": "Once upon a time, a curious cat wandered through a small village. It explored every corner, making new friends along the way..."
+      },
+      {
+        "title": "The Lost Key",
+        "content": "Emily was walking home when she realized her key was missing. She retraced her steps, trying to remember where she last saw it..."
+      },
+      {
+        "title": "A Day at the Beach",
+        "content": "The sun was shining brightly as Tom and his family set up their spot on the beach. The waves were calm, and the air was filled with the smell of the sea..."
+      },
+      {
+        "title": "The Old Oak Tree",
+        "content": "In the middle of the park stood a grand old oak tree. It had been there for centuries, providing shade and shelter to many..."
+      }
+    ]
+  }

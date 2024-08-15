@@ -1,0 +1,26 @@
+.reading-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.story-box {
+    border: 1px #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f3efef;
+}
+
+.story-box h3 {
+    font-family: serif;
+    margin-top: 0;
+    color: rgb(41, 40, 40);
+}
+
+.story-box p {
+    font-family: serif;
+    margin-bottom: 0;
+    font-size: large;
+    color: rgb(82, 82, 82);
+}

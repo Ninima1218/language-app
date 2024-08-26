@@ -12,10 +12,13 @@ import Grammar from './components/grammar/Grammar';
 import Missing from './components/missing/Missing';
 import wordsData from './data/wordsData.json';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { WordsProvider } from './components/Context';
 import './App.css';
 
 function App() {
+    
     return (
+        <WordsProvider>
         <Router>
             <div className="App">
                 <Header />
@@ -35,6 +38,7 @@ function App() {
                 <Footer />
             </div>
         </Router>
+        </WordsProvider>
     );
 }
 

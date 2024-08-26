@@ -6,12 +6,9 @@ function WordTable({ topic }) {
     const { words, loading, error, addWord, updateWord, deleteWord } = useContext(WordsContext);
     const navigate = useNavigate();
 
-    // Retrieve words specific to the topic from the context
     const topicWords = words[topic] || [];
 
     const [newWord, setNewWord] = useState({ word: '', meaning: '' });
-
-    // Handle loading and error states
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 

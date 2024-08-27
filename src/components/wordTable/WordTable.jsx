@@ -1,15 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { WordsContext } from '../Context';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
+import LoadingSpinner from '../LoadingSpinner';
 
-function WordTable({ topic }) {
+function WordTable() {
     const { words, loading, error, addWord, updateWord, deleteWord } = useContext(WordsContext);
     const navigate = useNavigate();
-
+    const { topic } = useParams()
     const topicWords = words[topic] || [];
 
     const [newWord, setNewWord] = useState({ word: '', meaning: '' });
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <LoadingSpinner />;
     if (error) return <div>{error}</div>;
 
     const handleAddWord = () => {

@@ -10,6 +10,7 @@ import Listening from './components/listening/Listening';
 import Writing from './components/writing/Writing';
 import Grammar from './components/grammar/Grammar';
 import Missing from './components/missing/Missing';
+import WordCard from './components/wordCard/WordCard';
 import wordsData from './data/wordsData.json';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WordsProvider } from './components/Context';

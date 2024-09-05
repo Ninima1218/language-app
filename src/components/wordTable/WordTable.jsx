@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { WordsContext } from '../Context';
 import { useNavigate, useParams} from 'react-router-dom';
-import LoadingSpinner from '../LoadingSpinner';
+import LoadingSpinner from '../loadingSpinner/LoadingSpinner';
 
 function WordTable() {
     const { words, loading, error, addWord, updateWord, deleteWord } = useContext(WordsContext);
@@ -85,7 +85,7 @@ function WordTable() {
 
             <button onClick={handleSave}>Save</button>
 
-            <button onClick={() => navigate(`/card/${topic}`)}>Go to Cards</button>
+            <button onClick={() => navigate(`/cards/${topic}`)}>Go to Cards</button>
         </div>
     );
 }

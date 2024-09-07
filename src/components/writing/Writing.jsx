@@ -1,5 +1,6 @@
 import React from 'react';
 import './Writing.css'; 
+import '../../fonts/fonts.css';
 
 function Writing() {
     const partsOfSpeech = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];

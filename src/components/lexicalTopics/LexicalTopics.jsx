@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../lexicalTopics/LexicalTopics.css';
+import '../../fonts/fonts.css';
 
 function LexicalTopics() {
     return (

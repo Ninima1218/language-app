@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Reading.css';
+import '../../fonts/fonts.css';
 
 function Reading() {
     const [stories, setStories] = useState([]);

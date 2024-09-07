@@ -4,6 +4,7 @@ import WordCard from '../wordCard/WordCard';
 import '../lexicalCard/LexicalCard.css';
 import useLocalStorage from '../hooks/useLocalStorage';
 import wordsData from '../../data/wordsData.json';
+import '../../fonts/fonts.css';
 
 function LexicalCard() {
     const { topic } = useParams();

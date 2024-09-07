@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../wordCard/WordCard.css';
+import '../../fonts/fonts.css';
 
 function WordCard({ word, meaning, onShowTranslation }) {
     const [showTranslation, setShowTranslation] = useState(false);

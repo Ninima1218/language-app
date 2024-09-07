@@ -1,5 +1,6 @@
 import React from 'react';
 import './Grammar.css'; 
+import '../../fonts/fonts.css';
 
 function Grammar() {
     const partsOfSpeech = ['Nouns', 'Verbs', 'Adjectives', 'Adverbs', 'Pronouns', 'Prepositions', 'Conjunctions', 'Interjections'];

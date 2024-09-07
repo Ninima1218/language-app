@@ -7,6 +7,7 @@ import grammarIcon from '../images/grammar.png';
 import listeningIcon from '../images/listening.png';
 import writingIcon from '../images/writing.png';
 import readingIcon from '../images/reading.png';
+import '../../fonts/fonts.css';
 
 function Menu() {
     return (

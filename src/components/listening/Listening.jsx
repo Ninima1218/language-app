@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Listening.css';
+import '../../fonts/fonts.css';
 
 function Listening() {
     const [mediaItems, setMediaItems] = useState([]);

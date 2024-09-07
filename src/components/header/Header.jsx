@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../images/logo.png';
+import '../../fonts/fonts.css';
 
 function Header() {
   return (

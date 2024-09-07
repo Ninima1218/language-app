@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 import instagramIcon from '../images/instagram.png';
 import linkedinIcon from '../images/linkedin.png';
+import '../../fonts/fonts.css';
 
 function Footer() {
   return (

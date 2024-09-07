@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStores } from '../../stores/wordStore'; 
 import { useNavigate, useParams } from 'react-router-dom';
+import '../../fonts/fonts.css';
 
 const WordTable = observer(() => {
     const { wordStore } = useStores();

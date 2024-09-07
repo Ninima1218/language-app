@@ -10,12 +10,14 @@ import Listening from './components/listening/Listening';
 import Writing from './components/writing/Writing';
 import Grammar from './components/grammar/Grammar';
 import Missing from './components/missing/Missing';
-import wordsData from './data/wordsData.json';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Provider } from 'mobx-react';
+import wordStore from './stores/wordStore';
 
 function App() {
     return (
+    <Provider wordStore={wordStore}>
         <Router>
             <div className="App">
                 <Header />
@@ -23,7 +25,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Menu />} />
                     <Route path="/vocabulary" element={<LexicalTopics />} />
-                    <Route path="/vocabulary/:topic" element={<WordTable words={wordsData} />} />
+                    <Route path="/vocabulary/:topic" element={<WordTable />} />
                     <Route path="/cards/:topic" element={<LexicalCard />} />
                     <Route path="*" element={<Missing />} />
                     <Route path="/grammar" element={<Grammar />} />
@@ -35,6 +37,7 @@ function App() {
                 <Footer />
             </div>
         </Router>
+    </Provider>
     );
 }
 

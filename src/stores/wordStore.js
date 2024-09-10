@@ -12,23 +12,35 @@ class WordStore {
     makeAutoObservable(this);
   }
 
+  setWordsForTopic(topic, newWords) {
+    this.words[topic] = newWords;  // Устанавливаем новые слова для указанной темы
+  }
+  
   addWord(topic, newWord) {
-    this.words[topic].push(newWord);
+    if (this.words[topic]) {
+      this.words[topic].push(newWord);
+    }
   }
 
   updateWord(topic, index, updatedWord) {
-    this.words[topic][index] = updatedWord;
+    if (this.words[topic] && this.words[topic][index]) {
+      this.words[topic][index] = updatedWord;
+    }
   }
 
   deleteWord(topic, index) {
-    this.words[topic].splice(index, 1);
+    if (this.words[topic]) {
+      this.words[topic].splice(index, 1);
+    }
   }
 
   fetchWords(topic) {
-    fetch(`/data/wordsData.json`)
+    fetch('/data/wordsData.json')
       .then(response => response.json())
       .then(data => {
-        this.words = data;
+        if (data[topic]) {
+          this.words[topic] = data[topic];  // Update only the relevant topic
+        }
       })
       .catch(error => {
         console.error('Failed to fetch words', error);

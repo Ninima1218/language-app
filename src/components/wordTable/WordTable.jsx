@@ -3,28 +3,29 @@ import { observer } from 'mobx-react-lite';
 import wordStore from '../../stores/wordStore'; 
 import { useNavigate, useParams } from 'react-router-dom';
 import '../../fonts/fonts.css';
+import wordsData from '../../data/wordsData.json';
 
 const WordTable = observer(() => {
-   // const { wordStore } = useStores();
     const { topic } = useParams(); 
     const navigate = useNavigate();
     const [words, setWords] = useState([]);
 
     useEffect(() => {
-        const topicWords = wordStore.words[topic] || [];
-        setWords(topicWords);
-    }, [topic, words]);
+        const topicWords = wordsData[topic] || [];
+        setWords(topicWords); 
+        wordStore.setWordsForTopic(topic, topicWords); // Правильное использование метода
+    }, [topic]);
 
     const handleAddWord = () => {
         const newWord = { word: '', meaning: '' };
-        wordStore.addWord(newWord); 
+        wordStore.addWord(topic, newWord);
     };
 
     const handleSave = () => {
         const isValid = words.every(({ word, meaning }) => word.trim() && meaning.trim());
         if (isValid) {
             console.log('Words:', words);
-            wordStore.saveToServer();
+            wordStore.saveToServer(); // Сохраняем на сервере
         } else {
             alert('Please fill in all fields.');
         }
@@ -47,14 +48,14 @@ const WordTable = observer(() => {
                                 <input
                                     type="text"
                                     value={wordObj.word}
-                                    onChange={(e) => wordStore.updateWord(index, { ...wordObj, word: e.target.value })} // Update store directly
+                                    onChange={(e) => wordStore.updateWord(topic, index, { ...wordObj, word: e.target.value })} 
                                 />
                             </td>
                             <td>
                                 <input
                                     type="text"
                                     value={wordObj.meaning}
-                                    onChange={(e) => wordStore.updateWord(index, { ...wordObj, meaning: e.target.value })} // Update store directly
+                                    onChange={(e) => wordStore.updateWord(topic, index, { ...wordObj, meaning: e.target.value })}
                                 />
                             </td>
                         </tr>
@@ -67,5 +68,6 @@ const WordTable = observer(() => {
         </div>
     );
 });
+
 
 export default WordTable;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import { useStores } from '../../stores/wordStore'; 
+import wordStore from '../../stores/wordStore'; 
 import { useNavigate, useParams } from 'react-router-dom';
 import '../../fonts/fonts.css';
 
 const WordTable = observer(() => {
-    const { wordStore } = useStores();
+   // const { wordStore } = useStores();
     const { topic } = useParams(); 
     const navigate = useNavigate();
     const [words, setWords] = useState([]);
@@ -13,7 +13,7 @@ const WordTable = observer(() => {
     useEffect(() => {
         const topicWords = wordStore.words[topic] || [];
         setWords(topicWords);
-    }, [topic, wordStore.words]);
+    }, [topic, words]);
 
     const handleAddWord = () => {
         const newWord = { word: '', meaning: '' };

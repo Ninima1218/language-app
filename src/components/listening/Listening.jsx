@@ -1,55 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Listening.css';
 import '../../fonts/fonts.css';
+import SimpleYouTube from './SimpleYouTube';
 
-function Listening() {
-    const [mediaItems, setMediaItems] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchMedia = async () => {
-            try {
-                const response = await fetch('https://learningenglish.voanews.com/podcasts');
-                const data = await response.json();
-                setMediaItems(data?.items || []); 
-                setLoading(false);
-            } catch (error) {
-                console.error("Error fetching media items:", error);
-                setLoading(false);
-            }
-        };
-
-        fetchMedia();
-    }, []);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
+const Listening = () => {
     return (
-        <div>
+        <div className="listening-container">
             <h2>Listening Practice</h2>
-            <div className="media-container">
-                {mediaItems.map((item, index) => (
-                    <div key={index} className="media-item">
-                        <h3>{item.title}</h3>
-                        <p>{item.description}</p>
-                        {item.mediaType === 'video' ? (
-                            <video controls>
-                                <source src={item.mediaUrl} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        ) : (
-                            <audio controls>
-                                <source src={item.mediaUrl} type="audio/mpeg" />
-                                Your browser does not support the audio element.
-                            </audio>
-                        )}
-                    </div>
-                ))}
+            <div className="videos-grid">
+                <SimpleYouTube 
+                    url="https://youtu.be/ry9SYnV3svc?si=0FPL51iipFT05nCo" 
+                    title="Small Talk | Everyday English" 
+                />
+                <SimpleYouTube 
+                    url="https://youtu.be/H31UA2EQSRc?si=JIIBicLdRRCziNS1" 
+                    title="How can I help you? | English for Real Life"
+                />
+                <SimpleYouTube 
+                    url="https://youtu.be/TTn0J7MT5lU?si=xRy0Tzk4MIqBeBkJ" 
+                    title="Daily Routines | Travel"
+                />
+                <SimpleYouTube 
+                    url="https://youtu.be/zqS_KAHEVTY?si=dV_fOl1ipaSqO9sR" 
+                    title="English for Reastaurants | Vocabulary for workers and clients"
+                />
             </div>
         </div>
     );
-}
+};
 
 export default Listening;

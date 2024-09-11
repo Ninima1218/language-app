@@ -1,16 +1,22 @@
-.media-container {
-    display: flex;
-    flex-wrap: wrap;
+.youtube-wrapper h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    justify-items: center;
 }
 
-.media-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 300px;
-}
-
-video, audio {
+.youtube-wrapper {
+    aspect-ratio: 16/9;
     width: 100%;
-    height: auto;
+    max-width: 600px;
 }

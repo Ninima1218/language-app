@@ -4,6 +4,7 @@ import wordStore from '../../stores/wordStore';
 import { useNavigate, useParams } from 'react-router-dom';
 import '../../fonts/fonts.css';
 import wordsData from '../../data/wordsData.json';
+import '../wordTable/WordTable.css';
 
 const WordTable = observer(() => {
     const { topic } = useParams(); 
@@ -13,22 +14,26 @@ const WordTable = observer(() => {
     useEffect(() => {
         const topicWords = wordsData[topic] || [];
         setWords(topicWords); 
-        wordStore.setWordsForTopic(topic, topicWords); // Правильное использование метода
+        wordStore.setWordsForTopic(topic, topicWords);
     }, [topic]);
 
     const handleAddWord = () => {
         const newWord = { word: '', meaning: '' };
-        wordStore.addWord(topic, newWord);
+        setWords([...words, newWord]);
     };
 
     const handleSave = () => {
         const isValid = words.every(({ word, meaning }) => word.trim() && meaning.trim());
         if (isValid) {
-            console.log('Words:', words);
-            wordStore.saveToServer(); // Сохраняем на сервере
+            wordStore.setWordsForTopic(topic, words);
         } else {
             alert('Please fill in all fields.');
         }
+    };
+
+    const handleDeleteWord = (index) => {
+        const updatedWords = words.filter((_, i) => i !== index);
+        setWords(updatedWords);
     };
 
     return (
@@ -39,6 +44,7 @@ const WordTable = observer(() => {
                     <tr>
                         <th>Word</th>
                         <th>Meaning</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,15 +54,26 @@ const WordTable = observer(() => {
                                 <input
                                     type="text"
                                     value={wordObj.word}
-                                    onChange={(e) => wordStore.updateWord(topic, index, { ...wordObj, word: e.target.value })} 
+                                    onChange={(e) => {
+                                        const updatedWords = [...words];
+                                        updatedWords[index].word = e.target.value;
+                                        setWords(updatedWords);
+                                    }}
                                 />
                             </td>
                             <td>
                                 <input
                                     type="text"
                                     value={wordObj.meaning}
-                                    onChange={(e) => wordStore.updateWord(topic, index, { ...wordObj, meaning: e.target.value })}
+                                    onChange={(e) => {
+                                        const updatedWords = [...words];
+                                        updatedWords[index].meaning = e.target.value;
+                                        setWords(updatedWords);
+                                    }}
                                 />
+                            </td>
+                            <td>
+                                <button id='delete' onClick={() => handleDeleteWord(index)}>Delete</button>
                             </td>
                         </tr>
                     ))}
